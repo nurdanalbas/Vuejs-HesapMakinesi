@@ -1,0 +1,17 @@
+button{ 
+    width:5%;
+    height: 5%;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+.buttona{
+   margin-left: 50px
+}
+.buttonb{
+    
+    width:3.5%;
+    height: 5%;
+    font-family: 'Courier New', Courier, monospace
+}
+h1{
+    color:midnightblue
+}

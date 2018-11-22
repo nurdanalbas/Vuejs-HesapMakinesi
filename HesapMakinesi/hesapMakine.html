@@ -1,0 +1,64 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<link href="hesapMakine.css" rel="stylesheet">
+
+
+<div id="app">
+
+    <button @click="value=1">1</button>
+    <button @click="value=2">2</button> 
+    <button @click="value=3">3</button><br> 
+    <button @click="value=4">4</button> 
+    <button @click="value=5">5</button> 
+    <button @click="value=6">6</button><br>
+    <button @click="value=7">7</button> 
+    <button @click="value=8">8</button> 
+    <button @click="value=9">9</button><br>
+    <button class="buttona" @click="value=0">0</button> 
+    <button  @click="sil()">C</button> <br><br>
+
+
+    <button class="buttonb" @click="topla()">+</button>
+    <button class="buttonb" @click="cikar()">-</button>
+    <button class="buttonb" @click="carp()">*</button>
+    <button class="buttonb" @click="bol()">/</button>
+  
+
+    <h1>Sonuç:</h1>{{sonuc}}
+
+</div>
+
+<script>
+
+new Vue({
+    el:"#app",
+    data:{
+      
+        value:0,
+        sonuc:0
+    },
+    methods:{
+        topla: function(){
+            this.sonuc+=this.value;
+        },
+        cikar: function(){
+            this.sonuc-=this.value;
+        },
+        carp: function(){
+            this.sonuc*=this.value;
+        },
+        bol: function(){
+            this.sonuc/=this.value;
+        },
+        sil:function(){
+            
+            this.sonuc=0
+        }
+    },
+    computed:{
+        durum:function(){
+            
+            
+        }
+    }
+})
+</script>

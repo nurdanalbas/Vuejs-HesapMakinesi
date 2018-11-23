@@ -1,32 +1,47 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <link href="hesapMakine.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
+<div class="mobile-container">
 <div id="app">
-
-    <button @click="value=1">1</button>
-    <button @click="value=2">2</button> 
-    <button @click="value=3">3</button><br> 
-    <button @click="value=4">4</button> 
-    <button @click="value=5">5</button> 
-    <button @click="value=6">6</button><br>
-    <button @click="value=7">7</button> 
-    <button @click="value=8">8</button> 
-    <button @click="value=9">9</button><br>
-    <button class="buttona" @click="value=0">0</button> 
-    <button  @click="sil()">C</button> <br><br>
-
-
-    <button class="buttonb" @click="topla()">+</button>
-    <button class="buttonb" @click="cikar()">-</button>
-    <button class="buttonb" @click="carp()">*</button>
-    <button class="buttonb" @click="bol()">/</button>
-  
-
-    <h1>Sonuç:</h1>{{sonuc}}
-
+<div class="header">
+    <h1>Hesap Makinesi</h1>
+    </div>
+    
+        <ul class="a" style="list-style-type:none">
+            <li> 
+                <button class="button" @click="value=1">1</button>
+                <button class="button" @click="value=2">2</button> 
+                <button class="button" @click="value=3">3</button><br> 
+                <button class="button" @click="value=4">4</button> 
+                <button class="button" @click="value=5">5</button> 
+                <button class="button" @click="value=6">6</button><br>
+                <button class="button" @click="value=7">7</button> 
+                <button class="button" @click="value=8">8</button> 
+                <button class="button" @click="value=9">9</button>
+            </li>  
+        </ul>
+        <ul class="b" style="list-style-type:none"><li>
+                <button class="button" @click="value=0">0</button> 
+                <button class="button" @click="sil()">C</button> <br><br>
+        </li></ul>
+        <ul class="c" style="list-style-type:none">
+        <li> 
+                <button class="buttona" @click="topla()">+</button>
+                <button class="buttona" @click="cikar()">-</button><br>
+                <button class="buttona" @click="carp()">*</button>
+                <button class="buttona" @click="bol()">/</button>
+        </li>
+        </ul>
+        <ul class="d" style="list-style-type:none">
+            <li>
+               <h2>Sonuç:</h2>{{sonuc}} <br>
+               {{durum}} {{islemSayisi}}
+            </li>
+        </ul>
+    
 </div>
-
+</div>
 <script>
 
 new Vue({
@@ -34,30 +49,36 @@ new Vue({
     data:{
       
         value:0,
-        sonuc:0
+        sonuc:0,
+        islemSayisi:0
+        
     },
     methods:{
-        topla: function(){
+        topla: function(islemSayisi){
             this.sonuc+=this.value;
+            this.islemSayisi++
         },
         cikar: function(){
             this.sonuc-=this.value;
+            this.islemSayisi++
         },
         carp: function(){
             this.sonuc*=this.value;
+            this.islemSayisi++
         },
         bol: function(){
             this.sonuc/=this.value;
+            this.islemSayisi++
         },
-        sil:function(){
-            
+        sil:function(){       
             this.sonuc=0
+            this.islemSayisi=0
         }
     },
     computed:{
         durum:function(){
-            
-            
+           if(this.islemSayisi!=0)
+           return "Yapılan işlem sayısı: "
         }
     }
 })

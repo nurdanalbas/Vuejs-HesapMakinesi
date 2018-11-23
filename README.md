@@ -1,1 +1,1 @@
-# Vuejs-HesapMakinesi
+# Html, Css, Vue.js kullanarak yapılmıştır. 
